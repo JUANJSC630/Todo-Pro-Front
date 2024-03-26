@@ -42,7 +42,7 @@ export const Accordion: React.FC<AccordionProps> = ({ items }) => {
       {items.map((item, index) => (
         <div key={index} className="mb-2">
           <button
-            className={`w-full text-gray-400 p-4 text-left border-2 border-red-700 bg-gray-900 focus:outline-none rounded-2xl hover:bg-gray-800 ${activeIndex === index ? "hidden" : ""}`}
+            className={`w-full text-gray-400 p-4 text-left border-2 border-gray-700 bg-gray-900 focus:outline-none rounded-2xl hover:bg-gray-800 ${activeIndex === index ? "hidden" : ""}`}
             onClick={() => toggleAccordion(index)}
           >
             {item.title}
