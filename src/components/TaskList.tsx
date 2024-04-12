@@ -1,16 +1,34 @@
+import { useEffect, useState } from "react";
 import TaskItem from "./TaskItem.tsx";
 import { useTasks } from "../context/useTasks.tsx";
+import Spinner from "./Spinner.tsx";
 
 function TaskList() {
-  const { tasks } = useTasks();
+    const { tasks, isLoading } = useTasks();
+    const [loadingMessage, setLoadingMessage] = useState("Loading tasks...");
 
-  return (
-    <div className="w-full flex flex-wrap gap-4 my-2 justify-center">
-      {tasks.map((task) => (
-        <TaskItem task={task} key={task._id} />
-      ))}
-    </div>
-  );
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            if (isLoading) {
+                setLoadingMessage("Still loading tasks...");
+            }
+        }, 3000);
+
+        return () => clearTimeout(timeout);
+    }, [isLoading]);
+
+    return (
+        <div className="w-full flex flex-wrap gap-4 my-2 justify-center">
+            {isLoading ? (
+                <div className="flex flex-col justify-center items-center gap-8">
+                    <p className="text-gray-500">{loadingMessage}</p>
+                    <Spinner />
+                </div>
+            ) : (
+                tasks.map((task) => <TaskItem task={task} key={task._id} />)
+            )}
+        </div>
+    );
 }
 
 export default TaskList;

@@ -1,39 +1,17 @@
-// App.js
-import { useState } from "react";
-import TaskList from "./components/TaskList.tsx";
-import { TaskProvider } from "./context/TaskContext.tsx";
-import { Accordion } from "./components/Accordion.tsx";
-import TaskForm from "./components/TaskForm.tsx";
+import MyRoutes from "./routers/routes.tsx";
 import NavMenu from "./components/NavMenu.tsx";
 
 function App() {
-  const [isAccordionOpen, setIsAccordionOpen] = useState(true);
-
-  const toggleAccordion = () => {
-    setIsAccordionOpen(!isAccordionOpen);
-  };
-
-  return (
-    <div className="bg-zinc-950 h-screen text-white flex items-center justify-start p-4">
-      <NavMenu />
-      <div className="w-full">
-        <h1 className="text-3xl font-bold text-center block my-2">
-          To Do List
-        </h1>
-        <TaskProvider>
-          <Accordion
-            items={[
-              {
-                title: "Task......",
-                content: <TaskForm onCloseAccordion={toggleAccordion} />,
-              },
-            ]}
-          />
-          <TaskList />
-        </TaskProvider>
-      </div>
-    </div>
-  );
+    return (
+        <div className="text-white flex justify-start">
+            <div className="h-screen bg-gray-100 dark:bg-slate-700">
+                <NavMenu />
+            </div>
+            <div className="w-full p-8 bg-gray-200 dark:bg-slate-800">
+                <MyRoutes />
+            </div>
+        </div>
+    );
 }
 
 export default App;
