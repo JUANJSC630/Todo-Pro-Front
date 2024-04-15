@@ -25,7 +25,7 @@ function TaskList() {
                     <Spinner />
                 </div>
             ) : (
-                tasks.map((task) => <TaskItem task={task} key={task._id} />)
+                tasks.map((task) => <TaskItem key={task.id} task={task} />)
             )}
         </div>
     );

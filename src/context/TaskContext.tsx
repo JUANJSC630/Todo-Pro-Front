@@ -54,7 +54,7 @@ export const TaskProvider: React.FC<Props> = ({ children }) => {
     const deleteTask = async (id: string) => {
         const response = await deleteTaskRequest(id);
         if (response.ok) {
-            setTasks(tasks.filter((task) => task._id !== id));
+            setTasks(tasks.filter((task) => task.id !== id));
         }
     };
 
@@ -63,7 +63,7 @@ export const TaskProvider: React.FC<Props> = ({ children }) => {
         const data = await response.json();
         setTasks(
             tasks.map((task) =>
-                task._id === id ? { ...task, ...data } : task,
+                task.id === id ? { ...task, ...data } : task,
             ),
         );
     };

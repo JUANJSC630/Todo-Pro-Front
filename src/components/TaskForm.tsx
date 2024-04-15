@@ -9,13 +9,14 @@ import { useTasks } from "../context/useTasks.tsx";
 
 const TaskForm: React.FC = () => {
     const [task, setTask] = useState({
+        id: "",
         title: "",
         description: "",
         done: false,
         priority: "low",
     });
 
-    const [expanded, setExpanded] = useState(false); // Estado para controlar la expansión del formulario
+    const [expanded, setExpanded] = useState(false);
 
     const { createTask } = useTasks();
 
@@ -32,12 +33,13 @@ const TaskForm: React.FC = () => {
         e.preventDefault();
         await createTask(task);
         setTask({
+            id: "",
             title: "",
             description: "",
             done: false,
             priority: "low",
         });
-        setExpanded(false); // Cerrar el formulario cuando se envíe
+        setExpanded(false);
     };
 
     const formRef = useRef<HTMLFormElement>(null); // Referencia al formulario
@@ -48,7 +50,7 @@ const TaskForm: React.FC = () => {
                 formRef.current &&
                 !formRef.current.contains(event.target as Node)
             ) {
-                setExpanded(false); // Cerrar el formulario cuando se haga clic fuera de él
+                setExpanded(false);
             }
         };
 
@@ -62,7 +64,7 @@ const TaskForm: React.FC = () => {
         <div className="w-full h-[72px] flex justify-center">
             <form
                 ref={formRef}
-                className="md:w-1/2 lg:w-2/6 absolute flex flex-col rounded-2xl gap-2 py-2 transition-all duration-500 backdrop-blur-xl bg-black/40"
+                className="md:w-full lg:w-2/6 absolute flex flex-col rounded-2xl gap-2 py-2 transition-all duration-500 backdrop-blur-xl bg-black/40"
                 onSubmit={handleSubmit}
             >
                 <input
