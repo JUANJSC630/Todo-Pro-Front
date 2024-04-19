@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import TaskItem from "./TaskItem.tsx";
-import { useTasks } from "../context/useTasks.tsx";
-import Spinner from "./Spinner.tsx";
+import TaskItem from "../TaskItem.tsx";
+import { useTasks } from "../../context/Tasks/useTasks.tsx";
+import Spinner from "../Spinner.tsx";
 
 function TaskList() {
     const { tasks, isLoading } = useTasks();

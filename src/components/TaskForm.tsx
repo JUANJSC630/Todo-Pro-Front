@@ -5,11 +5,10 @@ import React, {
     useRef,
     useState,
 } from "react";
-import { useTasks } from "../context/useTasks.tsx";
+import { useTasks } from "../context/Tasks/useTasks.tsx";
 
 const TaskForm: React.FC = () => {
     const [task, setTask] = useState({
-        id: "",
         title: "",
         description: "",
         done: false,
@@ -33,7 +32,6 @@ const TaskForm: React.FC = () => {
         e.preventDefault();
         await createTask(task);
         setTask({
-            id: "",
             title: "",
             description: "",
             done: false,

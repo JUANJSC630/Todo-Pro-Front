@@ -4,8 +4,8 @@ import {
     deleteTaskRequest,
     getTasksRequest,
     updateTaskRequest,
-} from "../api/task.tsx";
-import { CreateTask, Task, UpdateTask } from "../interfaces/task.interface.ts";
+} from "../../api/task.tsx";
+import { CreateTask, Task, UpdateTask } from "../../interfaces/task.interface.ts";
 
 interface TaskContextValue {
     tasks: Task[];

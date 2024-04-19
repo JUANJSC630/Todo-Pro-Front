@@ -1,6 +1,6 @@
 import TaskForm from "../components/TaskForm";
-import TaskList from "../components/TaskList";
-import { TaskProvider } from "../context/TaskContext";
+import TaskList from "../components/Lists/TaskList";
+import { TaskProvider } from "../context/Tasks/TaskContext";
 
 function ToDo() {
     return (

@@ -11,6 +11,7 @@ export const createTaskRequest = (task: CreateTask) => {
         },
         body: JSON.stringify(task),
     });
+    // console.log(process.env.API_URL)
 };
 
 export const getTasksRequest = () => {

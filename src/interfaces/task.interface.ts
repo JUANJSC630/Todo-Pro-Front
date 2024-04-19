@@ -6,6 +6,6 @@ export interface Task {
     priority?: string;
 }
 
-export type CreateTask = Omit<Task, "createdAt" | "updatedAt">;
+export type CreateTask = Omit<Task, "id"| "createdAt" | "updatedAt">;
 
 export type UpdateTask = Partial<CreateTask>;
