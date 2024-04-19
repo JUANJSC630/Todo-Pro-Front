@@ -10,7 +10,7 @@ function TaskItem({ task }: Props) {
     const { deleteTask, updateTask } = useTasks();
     return (
         <div
-            key={task.id}
+            key={String(task.id)}
             className="w-full h-full md:w-[250px] lg:w-[350px] bg-slate-600 flex flex-col hover:cursor-pointer rounded-2xl"
         >
             <span
