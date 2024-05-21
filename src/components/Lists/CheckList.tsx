@@ -9,7 +9,7 @@ import { getItemsRequest, updateItemRequest } from "../../api/items.tsx";
 
 function CheckList() {
     const { checklists, isLoading } = useChecklists();
-    const { isLoadingItems, updateItem } = useItems();
+    const { isLoadingItems } = useItems();
     const [selectedChecklist, setSelectedChecklist] =
         useState<Checklist | null>(null);
     const [loadingMessage, setLoadingMessage] = useState(
