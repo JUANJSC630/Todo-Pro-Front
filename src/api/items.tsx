@@ -1,7 +1,8 @@
 import { CreateItem, UpdateItem } from "../interfaces/checklist.interface";
 
-const Api = "https://todo-pro-backend.onrender.com/api";
-// const Api = "http://localhost:3000/api";
+const Api = import.meta.env.VITE_API_URL;
+
+console.log(Api);
 
 export const createItemsRequest = (checklistId: string, item: CreateItem) => {
     return fetch(`${Api}/checklists/${checklistId}/items`, {
